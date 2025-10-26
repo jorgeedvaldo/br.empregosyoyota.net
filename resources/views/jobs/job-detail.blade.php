@@ -316,94 +316,91 @@
 @endsection
 
 @section('content')
-    {{-- Main Content --}}
-    <div class="container" style="padding-top: 2rem;"> {{-- Ajuste o padding-top conforme o nav do template.app --}}
-        {{-- Botão Voltar (Adicionado para melhor UX) --}}
-        <div style="margin-bottom: 2rem;">
-            <a href="{{ route('jobs.index') }}" style="color: #627EEA; text-decoration: none; font-weight: 500;">&larr; Voltar para todas as vagas</a>
-        </div>
+    {{-- Botão Voltar (Adicionado para melhor UX) --}}
+    <div style="margin-bottom: 2rem;">
+        <a href="{{ route('jobs.index') }}" style="color: #627EEA; text-decoration: none; font-weight: 500;">&larr; Voltar para todas as vagas</a>
+    </div>
 
-        {{-- Job Header --}}
-        <div class="job-header">
-            <h1 class="job-title">{{ $job->title }}</h1>
-            <div class="job-company">{{ $job->company }}</div>
+    {{-- Job Header --}}
+    <div class="job-header">
+        <h1 class="job-title">{{ $job->title }}</h1>
+        <div class="job-company">{{ $job->company }}</div>
 
-            <div class="job-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Localização</span>
-                    <span class="meta-value">{{ $job->location ?? 'Não especificado' }}</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Publicado</span>
-                    <span class="meta-value">{{ $job->created_at->diffForHumans() }}</span>
-                </div>
+        <div class="job-meta">
+            <div class="meta-item">
+                <span class="meta-label">Localização</span>
+                <span class="meta-value">{{ $job->location ?? 'Não especificado' }}</span>
             </div>
-
-            @if($job->categories->count())
-                <div class="tags">
-                    @foreach($job->categories as $category)
-                        <span class="tag">{{ $category->name }}</span>
-                    @endforeach
-                </div>
-            @endif
-        </div>
-
-        {{-- Apply Button --}}
-        @if($job->apply)
-            <div class="apply-section">
-                <a href="{{ $job->apply }}" target="_blank" class="btn-apply">Candidatar-se Agora</a>
-            </div>
-        @endif
-
-        {{-- Auto Apply Promo (conteúdo estático da inspiração) --}}
-        <div class="auto-apply-promo">
-            <div class="promo-badge">Serviço Premium</div>
-            <h2 class="promo-title">Cansado de se Candidatar Manualmente?</h2>
-            <p class="promo-description">
-                Deixe nosso Serviço de Candidaturas Automáticas fazer o trabalho por você! Enviaremos candidaturas para vagas que correspondam ao seu perfil automaticamente, economizando horas do seu tempo.
-            </p>
-
-            <div class="promo-features">
-                <div class="promo-feature">
-                    <span class="feature-icon">⚡</span>
-                    <div class="feature-text">
-                        <strong>Automação Inteligente</strong><br>
-                        Correspondência com IA para encontrar as melhores oportunidades
-                    </div>
-                </div>
-                <div class="promo-feature">
-                    <span class="feature-icon">⏰</span>
-                    <div class="feature-text">
-                        <strong>Economize Tempo</strong><br>
-                        Candidate-se a dezenas de vagas enquanto você foca nas entrevistas
-                    </div>
-                </div>
-                <div class="promo-feature">
-                    <span class="feature-icon">🎯</span>
-                    <div class="feature-text">
-                        <strong>Máxima Precisão</strong><br>
-                        Candidaturas direcionadas com base na sua experiência
-                    </div>
-                </div>
-            </div>
-
-            <a href="{{ route('home', ['#pricing']) }}" class="btn-promo">Comece a partir de $1/semana</a> {{-- Ajustado para linkar para a seção de pricing da home --}}
-        </div>
-
-        {{-- Job Description --}}
-        <div class="job-section">
-            <h2 class="section-title">Sobre a Vaga</h2>
-            <div class="job-description">
-                {{-- O campo 'content' do seu Job model deve conter a descrição completa, possivelmente com HTML para formatação --}}
-                {!! $job->content !!}
+            <div class="meta-item">
+                <span class="meta-label">Publicado</span>
+                <span class="meta-value">{{ $job->created_at->diffForHumans() }}</span>
             </div>
         </div>
 
-        {{-- Apply Button Bottom --}}
-        @if($job->apply)
-            <div class="apply-section">
-                <a href="{{ $job->apply }}" target="_blank" class="btn-apply">Candidatar-se Agora</a>
+        @if($job->categories->count())
+            <div class="tags">
+                @foreach($job->categories as $category)
+                    <span class="tag">{{ $category->name }}</span>
+                @endforeach
             </div>
         @endif
     </div>
+
+    {{-- Apply Button --}}
+    @if($job->apply)
+        <div class="apply-section">
+            <a href="{{ $job->apply }}" target="_blank" class="btn-apply">Candidatar-se Agora</a>
+        </div>
+    @endif
+
+    {{-- Auto Apply Promo (conteúdo estático da inspiração) --}}
+    <div class="auto-apply-promo">
+        <div class="promo-badge">Serviço Premium</div>
+        <h2 class="promo-title">Cansado de se Candidatar Manualmente?</h2>
+        <p class="promo-description">
+            Deixe nosso Serviço de Candidaturas Automáticas fazer o trabalho por você! Enviaremos candidaturas para vagas que correspondam ao seu perfil automaticamente, economizando horas do seu tempo.
+        </p>
+
+        <div class="promo-features">
+            <div class="promo-feature">
+                <span class="feature-icon">⚡</span>
+                <div class="feature-text">
+                    <strong>Automação Inteligente</strong><br>
+                    Correspondência com IA para encontrar as melhores oportunidades
+                </div>
+            </div>
+            <div class="promo-feature">
+                <span class="feature-icon">⏰</span>
+                <div class="feature-text">
+                    <strong>Economize Tempo</strong><br>
+                    Candidate-se a dezenas de vagas enquanto você foca nas entrevistas
+                </div>
+            </div>
+            <div class="promo-feature">
+                <span class="feature-icon">🎯</span>
+                <div class="feature-text">
+                    <strong>Máxima Precisão</strong><br>
+                    Candidaturas direcionadas com base na sua experiência
+                </div>
+            </div>
+        </div>
+
+        <a href="{{ route('home', ['#pricing']) }}" class="btn-promo">Comece a partir de $1/semana</a> {{-- Ajustado para linkar para a seção de pricing da home --}}
+    </div>
+
+    {{-- Job Description --}}
+    <div class="job-section">
+        <h2 class="section-title">Sobre a Vaga</h2>
+        <div class="job-description">
+            {{-- O campo 'content' do seu Job model deve conter a descrição completa, possivelmente com HTML para formatação --}}
+            {!! $job->content !!}
+        </div>
+    </div>
+
+    {{-- Apply Button Bottom --}}
+    @if($job->apply)
+        <div class="apply-section">
+            <a href="{{ $job->apply }}" target="_blank" class="btn-apply">Candidatar-se Agora</a>
+        </div>
+    @endif
 @endsection
