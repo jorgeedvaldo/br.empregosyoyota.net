@@ -3,8 +3,8 @@
 {{-- Define o título da página dinamicamente --}}
 @section('title', $job->title . ' - ' . $job->company . ' | Remote Yoyota')
 
-{{-- Meta Description: Tenta usar um trecho do conteúdo da vaga, caso exista um campo específico, use-o --}}
-@section('meta_description', Str::limit(strip_tags($job->content), 160))
+
+
 
 @section('style')
 <style>
@@ -21,8 +21,7 @@
             background: #fff;
         }
 
-        /* Nav (Esta seção é geralmente definida no template.app. Deixando aqui para referência de estilo, mas o @extends já cuida da navegação) */
-
+        /* Nav */
         nav {
             border-bottom: 1px solid #e5e5e5;
             padding: 1rem 0;
@@ -49,7 +48,6 @@
         nav a:hover {
             color: #627EEA;
         }
-
 
         /* Container */
         .container {
@@ -247,7 +245,7 @@
             line-height: 1;
         }
 
-        /* Tags (para habilidades/categorias) */
+        /* Tags */
         .tags {
             display: flex;
             flex-wrap: wrap;
@@ -263,8 +261,7 @@
             font-weight: 500;
         }
 
-        /* Footer (Esta seção também é geralmente definida no template.app) */
-
+        /* Footer */
         footer {
             margin-top: 4rem;
             padding: 2rem 0;
@@ -282,14 +279,13 @@
             text-decoration: underline;
         }
 
-
         /* Responsive */
         @media (max-width: 768px) {
-            /* nav ul {
+            nav ul {
                 flex-direction: column;
                 gap: 1rem;
                 text-align: center;
-            } */
+            }
 
             .job-title {
                 font-size: 1.8em;
