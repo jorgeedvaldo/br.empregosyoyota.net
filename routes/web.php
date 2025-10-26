@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FeedController;
@@ -21,6 +22,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.post');
+
+Route::get('/jobs', [JobController::class, 'index'])->name('jobs.index');
+Route::get('/jobs/{slug}', [JobController::class, 'show'])->name('jobs.job-detail');
 
 Route::get('/feed', [FeedController::class, 'index'])->name('feed');
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');

@@ -51,7 +51,7 @@ class PostResource extends Resource
                     'draft' => 'Draft',
                     'published' => 'Published',
                 ])
-                ->default('draft'),
+                ->default('published'),
 
             Forms\Components\Select::make('user_id')
                 ->label('Autor')

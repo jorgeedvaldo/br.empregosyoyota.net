@@ -399,139 +399,113 @@
     </style>
 @endsection
 @section('content')
-<!-- Hero Section -->
+<!-- Seção Principal -->
     <section class="hero">
         <div class="container">
             <h1>Remote Yoyota</h1>
-            <p>Your gateway to remote job opportunities worldwide. Let our automatic application service work for you while you focus on what matters.</p>
-            <a href="#pricing" class="cta-button">Try Auto Apply Service</a>
+            <p>Sua porta de entrada para oportunidades de emprego remoto em todo o mundo. Deixe nosso serviço de candidaturas automáticas trabalhar para você enquanto você se concentra no que realmente importa.</p>
+            <a href="#pricing" class="cta-button">Experimente o Serviço de Candidaturas Automáticas</a>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Seção de Funcionalidades -->
     <section class="features">
         <div class="container">
-            <h2>Automatic Job Applications Service</h2>
+            <h2>Serviço de Candidaturas Automáticas de Vagas</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <h3>Smart Automation</h3>
-                    <p>Advanced system that analyzes your profile and finds the best opportunities matching your skills and experience.</p>
+                    <h3>Automação Inteligente</h3>
+                    <p>Sistema avançado que analisa seu perfil e encontra as melhores oportunidades, compatíveis com suas habilidades e experiência.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>Time Saving</h3>
-                    <p>Don't waste time searching for jobs. We focus on the ones that really matter and apply on your behalf.</p>
+                    <h3>Economia de Tempo</h3>
+                    <p>Não perca tempo procurando vagas. Focamos nas que realmente importam e nos candidatamos em seu nome.</p>
                 </div>
                 <div class="feature-card">
-                    <h3>Maximum Precision</h3>
-                    <p>Targeted applications based on your experience and career goals, increasing your chances of success.</p>
+                    <h3>Máxima Precisão</h3>
+                    <p>Candidaturas direcionadas com base na sua experiência e objetivos de carreira, aumentando suas chances de sucesso.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
+    <!-- Seção de Planos -->
     <section class="pricing" id="pricing">
         <div class="container">
-            <h2>Choose Your Plan</h2>
+            <h2>Escolha Seu Plano</h2>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <div class="plan-name">Weekly</div>
+                    <div class="plan-name">Semanal</div>
                     <div class="plan-price">$1</div>
-                    <div class="plan-period">per week</div>
+                    <div class="plan-period">por semana</div>
                     <div class="plan-savings empty">&nbsp;</div>
                     <ul class="plan-features">
-                        <li>Automatic applications</li>
-                        <li>Profile matching</li>
-                        <li>Weekly reports</li>
-                        <li>Email support</li>
+                        <li>Candidaturas automáticas</li>
+                        <li>Correspondência de perfil</li>
+                        <li>Relatórios semanais</li>
+                        <li>Suporte por e-mail</li>
                     </ul>
-                    <button class="plan-button">Start Weekly</button>
+                    <button class="plan-button">Começar Semanal</button>
                 </div>
 
                 <div class="pricing-card featured">
-                    <div class="plan-name">Monthly</div>
+                    <div class="plan-name">Mensal</div>
                     <div class="plan-price">$3.50</div>
-                    <div class="plan-period">per month</div>
-                    <div class="plan-savings">Save $0.83/month (19%)</div>
+                    <div class="plan-period">por mês</div>
+                    <div class="plan-savings">Economize $0.83/mês (19%)</div>
                     <ul class="plan-features">
-                        <li>Automatic applications</li>
-                        <li>Profile matching</li>
-                        <li>Weekly reports</li>
-                        <li>Priority support</li>
+                        <li>Candidaturas automáticas</li>
+                        <li>Correspondência de perfil</li>
+                        <li>Relatórios semanais</li>
+                        <li>Suporte prioritário</li>
                     </ul>
-                    <button class="plan-button">Start Monthly</button>
+                    <button class="plan-button">Começar Mensal</button>
                 </div>
 
                 <div class="pricing-card">
-                    <div class="plan-name">Quarterly</div>
+                    <div class="plan-name">Trimestral</div>
                     <div class="plan-price">$9</div>
-                    <div class="plan-period">per quarter</div>
-                    <div class="plan-savings">Save $4/quarter (31%)</div>
+                    <div class="plan-period">por trimestre</div>
+                    <div class="plan-savings">Economize $4/trimestre (31%)</div>
                     <ul class="plan-features">
-                        <li>Automatic applications</li>
-                        <li>Profile matching</li>
-                        <li>Weekly reports</li>
-                        <li>Premium support</li>
+                        <li>Candidaturas automáticas</li>
+                        <li>Correspondência de perfil</li>
+                        <li>Relatórios semanais</li>
+                        <li>Suporte premium</li>
                     </ul>
-                    <button class="plan-button">Start Quarterly</button>
+                    <button class="plan-button">Começar Trimestral</button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Jobs Section -->
+    <!-- Seção de Vagas -->
     <section class="jobs" id="jobs">
         <div class="container">
-            <h2>Latest Job Opportunities</h2>
+            <h2>Últimas Oportunidades de Vagas</h2>
 
-            <div class="job-card">
-                <h3 class="job-title"><a href="#">Senior Frontend Developer</a></h3>
-                <div class="job-company">Tech Solutions Inc.</div>
-                <div class="job-meta">
-                    <span>Remote</span>
-                    <span>Full-time</span>
-                    <span>$80k - $120k</span>
+            {{-- Itera sobre as vagas passadas pelo controller --}}
+            @forelse($jobs as $job)
+                <div class="job-card">
+                    <h3 class="job-title"><a href="#">{{ $job->title }}</a></h3>
+                    <div class="job-company">{{ $job->company }}</div>
+                    <div class="job-meta">
+                        <span>{{ $job->location }}</span>
+                        {{-- Campos como "Full-time" e a faixa salarial não estão no seu modelo Job atualmente.
+                           Se você quiser exibi-los, precisaria adicioná-los ao modelo Job e à tabela de banco de dados.
+                           Por exemplo, se tivesse 'employment_type' e 'salary_range':
+                           <span>{{ $job->employment_type }}</span>
+                           <span>{{ $job->salary_range }}</span>
+                        --}}
+                    </div>
                 </div>
-            </div>
+            @empty
+                <p>Nenhuma vaga encontrada no momento.</p>
+            @endforelse
 
-            <div class="job-card">
-                <h3 class="job-title"><a href="#">Full Stack Engineer</a></h3>
-                <div class="job-company">Innovation Labs</div>
-                <div class="job-meta">
-                    <span>San Francisco, CA</span>
-                    <span>Full-time</span>
-                    <span>$100k - $150k</span>
-                </div>
-            </div>
-
-            <div class="job-card">
-                <h3 class="job-title"><a href="#">Backend Developer</a></h3>
-                <div class="job-company">Cloud Systems</div>
-                <div class="job-meta">
-                    <span>Remote</span>
-                    <span>Contract</span>
-                    <span>$70k - $100k</span>
-                </div>
-            </div>
-
-            <div class="job-card">
-                <h3 class="job-title"><a href="#">DevOps Engineer</a></h3>
-                <div class="job-company">DataFlow Corp</div>
-                <div class="job-meta">
-                    <span>New York, NY</span>
-                    <span>Full-time</span>
-                    <span>$90k - $130k</span>
-                </div>
-            </div>
-
-            <div class="job-card">
-                <h3 class="job-title"><a href="#">Mobile Developer (React Native)</a></h3>
-                <div class="job-company">AppWorks Studio</div>
-                <div class="job-meta">
-                    <span>Remote</span>
-                    <span>Full-time</span>
-                    <span>$75k - $110k</span>
-                </div>
+            {{-- Você pode adicionar um link para uma página com todas as vagas aqui --}}
+            <div class="text-center mt-4">
+                <a href="{{ route('jobs.index') }}" class="cta-button">Ver todas as vagas</a>
             </div>
         </div>
     </section>
