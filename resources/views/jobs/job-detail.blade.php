@@ -334,16 +334,6 @@
                     <span class="meta-value">{{ $job->location ?? 'Não especificado' }}</span>
                 </div>
                 <div class="meta-item">
-                    <span class="meta-label">Salário</span>
-                    {{-- Assumindo que você tem um campo 'salary_range' ou similar no seu modelo Job --}}
-                    <span class="meta-value">{{ $job->salary_range ?? 'A negociar' }}</span>
-                </div>
-                <div class="meta-item">
-                    <span class="meta-label">Tipo de Vaga</span>
-                    {{-- Assumindo que você tem um campo 'employment_type' ou similar no seu modelo Job (e.g., Full-time, Contract) --}}
-                    <span class="meta-value">{{ $job->employment_type ?? 'Tempo Integral' }}</span>
-                </div>
-                <div class="meta-item">
                     <span class="meta-label">Publicado</span>
                     <span class="meta-value">{{ $job->created_at->diffForHumans() }}</span>
                 </div>
@@ -409,37 +399,6 @@
             </div>
         </div>
 
-        {{-- Seções como Responsabilidades, Requisitos, Benefícios:
-             Se você tiver campos separados no seu modelo Job para isso (ex: `responsibilities_html`, `requirements_json`, etc.),
-             você pode exibi-los aqui. Caso contrário, assumimos que eles estão formatados dentro do campo 'content'.
-             Deixarei a estrutura base aqui como referência, mas com conteúdo de exemplo/placeholder.
-        --}}
-
-        {{-- Exemplo de como você faria se tivesse um campo 'responsibilities' que é HTML: --}}
-        {{-- @if($job->responsibilities)
-            <div class="job-section">
-                <h2 class="section-title">Responsabilidades</h2>
-                <div class="job-description">
-                    {!! $job->responsibilities !!}
-                </div>
-            </div>
-        @endif --}}
-
-        {{-- Exemplo de como você faria se tivesse um campo 'requirements' que é uma lista JSON: --}}
-        {{-- @if($job->requirements)
-            <div class="job-section">
-                <h2 class="section-title">Requisitos</h2>
-                <ul class="job-list">
-                    @foreach(json_decode($job->requirements) as $requirement)
-                        <li>{{ $requirement }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif --}}
-
-        {{-- Você pode replicar a estrutura para 'Nice to Have' e 'Benefits' conforme necessário --}}
-
-
         {{-- Apply Button Bottom --}}
         @if($job->apply)
             <div class="apply-section">
@@ -447,6 +406,4 @@
             </div>
         @endif
     </div>
-
-    {{-- O rodapé é geralmente gerenciado pelo template.app, então não o incluímos aqui --}}
 @endsection

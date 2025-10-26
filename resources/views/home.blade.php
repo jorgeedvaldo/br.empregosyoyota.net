@@ -487,7 +487,7 @@
             {{-- Itera sobre as vagas passadas pelo controller --}}
             @forelse($jobs as $job)
                 <div class="job-card">
-                    <h3 class="job-title"><a href="#">{{ $job->title }}</a></h3>
+                    <h3 class="job-title"><a href="{{ route('jobs.job-detail', $job->slug) }}">{{ $job->title }}</a></h3>
                     <div class="job-company">{{ $job->company }}</div>
                     <div class="job-meta">
                         <span>{{ $job->location }}</span>

@@ -17,7 +17,7 @@ class JobController extends Controller
 
     public function show($slug)
     {
-        $post = Job::where('slug', $slug)->firstOrFail();
+        $job = Job::where('slug', $slug)->firstOrFail();
         $recentJobs = Job::orderBy('created_at', 'desc')->take(5)->get();
 
         return view('jobs.job-detail', compact('job', 'recentJobs'));
