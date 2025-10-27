@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\JobController;
 use App\Http\Controllers\Api\PostController;
 
 /*
@@ -16,3 +17,4 @@ use App\Http\Controllers\Api\PostController;
 */
 
 Route::middleware('auth:sanctum')->post('/posts', [PostController::class, 'store']);
+Route::middleware('auth:sanctum')->post('/jobs', [JobController::class, 'store']);
