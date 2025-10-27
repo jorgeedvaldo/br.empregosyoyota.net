@@ -1,8 +1,31 @@
 @extends('template.app')
-
-{{-- Define o título da página dinamicamente --}}
 @section('title', $job->title . ' - ' . $job->company . ' | Remote Yoyota')
+@section('meta_tags')
+<!-- Meta Tags for SEO -->
+<meta name="description" content="{{ $job->meta_description ?? \Illuminate\Support\Str::limit(strip_tags($job->content), 155) }}">
+<meta name="keywords" content="{{ $job->meta_keywords ?? 'Bitcoin, BTC, Ethereum, ETH, DOGE, BNB, Crypto' }}">
+<link rel="canonical" href="{{ route('jobs.job-detail', $job->slug) }}">
 
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="{{ $job->title }} | {{ config('app.name', 'Ethereum Scan') }}">
+<meta property="og:description" content="{{ $job->meta_description ?? \Illuminate\Support\Str::limit(strip_tags($job->content), 155) }}">
+@if($job->image)
+    <meta property="og:image" content="{{ asset('storage/' . $job->image) }}">
+@endif
+<meta property="og:url" content="{{ route('jobs.job-detail', $job->slug) }}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="{{ config('app.name', 'Ethereum Scan') }}">
+<meta property="article:published_time" content="{{ $job->created_at->toIso8601String() }}">
+<meta property="article:modified_time" content="{{ $job->updated_at->toIso8601String() }}">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $job->title }} | {{ config('app.name', 'Ethereum Scan') }}">
+<meta name="twitter:description" content="{{ $job->meta_description ?? \Illuminate\Support\Str::limit(strip_tags($job->content), 155) }}">
+@if($job->image)
+    <meta name="twitter:image" content="{{ asset('storage/' . $job->image) }}">
+@endif
+@endsection
 
 
 
