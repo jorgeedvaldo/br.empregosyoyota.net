@@ -402,7 +402,7 @@
 <!-- Seção Principal -->
     <section class="hero">
         <div class="container">
-            <h1>Remote Yoyota</h1>
+            <h1>Empregos Yoyota Brasil</h1>
             <p>Sua porta de entrada para oportunidades de emprego remoto em todo o mundo. Deixe nosso serviço de candidaturas automáticas trabalhar para você enquanto você se concentra no que realmente importa.</p>
             <a href="#pricing" class="cta-button">Experimente o Serviço de Candidaturas Automáticas</a>
         </div>
