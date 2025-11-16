@@ -12,8 +12,8 @@
 
     <title>@yield('title') | {{env('APP_NAME')}}</title>
     @yield('meta_tags')
+    @yield('head-scripts')
     @yield('style')
-
 </head>
 <body>
     <nav>

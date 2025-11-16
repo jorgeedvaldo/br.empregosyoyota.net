@@ -27,7 +27,60 @@
 @endif
 @endsection
 
+@section('head-scripts')
+<script type="application/ld+json">
+    {
+  "@context":"http:\/\/schema.org\/",
+  "@type":"JobPosting",
+  "datePosted":"{{ date_format(new DateTime($job['created_at']), DATE_ATOM) }}",
+  "title":"{{$job['title']}}",
+  "description":"{{$job['content']}}",
+  "employmentType":["FULL_TIME"],
+  "hiringOrganization":{
+          "@type":"Organization",
+          "name":"{{$job['company']}}",
+          "logo":"{{asset('storage/' . $job['image'])}}"
+          },
+  "identifier":{
+          "@type":"PropertyValue",
+          "name":"{{$job['company']}}",
+          "value":"https://br.empregosyoyota.net"
+          },
+  "jobLocation":[
 
+    {
+      "@type":"Place",
+      "address":"{{$job['location']}}"
+    },
+
+    {
+        "@type":"Place",
+        "address":
+                {
+                    "@type":"PostalAddress",
+                    "streetAddress":"São Paulo",
+                    "addressLocality":"São Paulo",
+                    "addressRegion":"São Paulo",
+                    "postalCode":"São Paulo",
+                    "addressCountry":"Brasil"
+                }
+    },
+    {
+        "@type":"Place",
+        "address":
+                {
+                    "@type":"PostalAddress",
+                    "streetAddress":"Brasil",
+                    "addressLocality":"Brasil",
+                    "addressRegion":"Brasil",
+                    "postalCode":"Brasil",
+                    "addressCountry":"Brasil"
+                }
+    }
+]
+}
+</script>
+@endsection
 
 @section('style')
 <style>
