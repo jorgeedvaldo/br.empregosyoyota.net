@@ -19,7 +19,7 @@
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-
+            <li><a href="{{ route('jobs.index') }}">Explorar vagas</a></li>
             <li><a href="{{ route('blog.index') }}">Blog</a></li>
         </ul>
     </nav>
