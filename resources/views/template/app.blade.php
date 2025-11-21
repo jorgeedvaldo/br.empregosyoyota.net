@@ -14,6 +14,16 @@
     @yield('meta_tags')
     @yield('head-scripts')
     @yield('style')
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-R33J0XPVB9"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-R33J0XPVB9');
+    </script>
 </head>
 <body>
     <nav>
